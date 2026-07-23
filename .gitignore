@@ -1,0 +1,29 @@
+__pycache__/
+*.py[cod]
+.venv/
+.python/
+python-*-amd64.exe
+python-*-embed-amd64.zip
+
+# Large local dataset and generated outputs
+data/CARE_To_Compare/
+results/
+
+# Scripts currently write regenerated outputs to the working directory.
+*.png
+care_*.csv
+enlarged_paired_*.csv
+noise_sweep_results.csv
+paired_episode_differences.csv
+real_data_validation_summary.csv
+sweep_results.csv
+
+# Keep the corrected baseline and the verified full CARE benchmark as
+# lightweight, report-ready evidence. Pilot and legacy outputs stay local.
+!results/
+results/*
+!results/CORRECTED_BASELINE_2026-07-23.md
+!results/care_benchmark/
+results/care_benchmark/*
+!results/care_benchmark/full_2026-07-23/
+!results/care_benchmark/full_2026-07-23/**
