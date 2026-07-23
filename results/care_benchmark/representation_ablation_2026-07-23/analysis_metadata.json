@@ -1,0 +1,19 @@
+{
+  "created_utc": "2026-07-23",
+  "base_events": "../full_2026-07-23/care_benchmark_events.csv",
+  "additional_events": [
+    "../quadratic_full_2026-07-23/care_benchmark_events.csv"
+  ],
+  "event_rows": 950,
+  "primary_normal_statuses": "0",
+  "representations": [
+    "raw",
+    "linear_residual",
+    "quadratic_residual"
+  ],
+  "detectors": [
+    "gmm",
+    "iforest"
+  ],
+  "confidence_intervals": "1000-resample asset-clustered bootstrap"
+}

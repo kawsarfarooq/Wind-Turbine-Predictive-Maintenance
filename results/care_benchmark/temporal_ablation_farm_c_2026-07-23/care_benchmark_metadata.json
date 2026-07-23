@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-07-23T12:25:58.081808+00:00",
+  "python": "3.12.10",
+  "numpy": "2.5.1",
+  "pandas": "3.0.5",
+  "scikit_learn": "1.9.0",
+  "farms": [
+    "C"
+  ],
+  "representations": [
+    "raw"
+  ],
+  "detectors": [
+    "gmm"
+  ],
+  "normal_status_sets": [
+    "0"
+  ],
+  "smooth_steps": [
+    1,
+    6,
+    36,
+    144,
+    432
+  ],
+  "threshold_quantiles": [
+    0.95,
+    0.975,
+    0.99,
+    0.995,
+    0.999
+  ],
+  "max_train_rows": 20000,
+  "quick": 0,
+  "summary_skipped": true
+}

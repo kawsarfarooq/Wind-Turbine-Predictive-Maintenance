@@ -1,0 +1,18 @@
+{
+  "seed": 0,
+  "train_turbines": [
+    0,
+    1,
+    2
+  ],
+  "test_turbines": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "n_days": 500,
+  "threshold_quantile": 0.995,
+  "threshold": 2.533869112996809
+}

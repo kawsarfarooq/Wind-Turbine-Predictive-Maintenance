@@ -1,0 +1,26 @@
+{
+  "event_csvs": [
+    "results\\care_benchmark\\temporal_ablation_farm_a_2026-07-23\\care_benchmark_events.csv",
+    "results\\care_benchmark\\temporal_ablation_farm_b_2026-07-23\\care_benchmark_events.csv",
+    "results\\care_benchmark\\temporal_ablation_farm_c_2026-07-23\\care_benchmark_events.csv"
+  ],
+  "event_rows": 2375,
+  "normal_statuses": "0",
+  "reference_threshold_quantile": 0.995,
+  "smoothing_steps": [
+    1,
+    6,
+    36,
+    144,
+    432
+  ],
+  "threshold_quantiles": [
+    0.95,
+    0.975,
+    0.99,
+    0.995,
+    0.999
+  ],
+  "confidence_intervals": "1000-resample asset-clustered bootstrap",
+  "selection_status": "exploratory; same labeled events used for comparison"
+}

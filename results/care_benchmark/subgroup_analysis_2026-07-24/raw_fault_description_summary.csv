@@ -1,0 +1,36 @@
+farm,fault_category,description,n_events,n_assets,mean_event_percentile,detection_rate
+A,Drivetrain / bearings,Gearbox bearings damaged,1,1,0.5107376459562801,0.0
+A,Drivetrain / bearings,Gearbox failure,2,2,0.5156974636463352,0.5
+A,Drivetrain / bearings,Generator bearing failure,2,2,0.6564364878666309,1.0
+A,Electrical / converter / transformer,Transformer failure,1,1,0.6165963784118321,0.0
+A,Hydraulic / brake / lubrication,Hydraulic group,6,4,0.5711245645394961,0.5
+B,Drivetrain / bearings,Rotor Bearing 2 - Damage,1,1,0.7113047499873113,1.0
+B,Drivetrain / bearings,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,1,0.6449595121146422,0.0
+B,Drivetrain / bearings,Turbine is stopped due to a main bearing damage,1,1,0.620156218172579,0.0
+B,Electrical / converter / transformer,high temperature in transformer cell,3,3,0.5816094093904547,0.0
+C,Communication / control,COMMUNICATION FAULT BK1120 IN NC300 A2,1,1,0.8550297021379868,0.0
+C,Communication / control,Communication fault BK1120 in NC300,1,1,0.7473701835740455,1.0
+C,Cooling,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,1,0.9765547258995824,1.0
+C,Drivetrain / bearings,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,1,0.5654213980683644,0.0
+C,Electrical / converter / transformer,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,1,0.7171569051034338,0.0
+C,Electrical / converter / transformer,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,1,0.8938474964040941,0.0
+C,Electrical / converter / transformer,Turbine has some issues with overpressure on the main transformer,1,1,0.697053972092944,0.0
+C,Electrical / converter / transformer,WEC in failure - current measurement own consumption,1,1,0.8316983472368261,1.0
+C,Electrical / converter / transformer,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,1,0.7475172640107057,0.0
+C,Hydraulic / brake / lubrication,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,1,0.9528635789974864,1.0
+C,Hydraulic / brake / lubrication,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,1,0.8674203352366918,1.0
+C,Hydraulic / brake / lubrication,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,1,0.7614562669437053,0.0
+C,Hydraulic / brake / lubrication,P20_Blade3_Grease Collector missing,1,1,0.99838688190032,1.0
+C,Hydraulic / brake / lubrication,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,1,0.818008207611317,0.0
+C,Hydraulic / brake / lubrication,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,1,0.9227527006709066,1.0
+C,Hydraulic / brake / lubrication,PENDING19_PREV_YAW_Grease pump defective,1,1,0.7072442877928735,0.0
+C,Pitch / blade / hub,"21002 : Axis 1 DC-link voltage low, batt",1,1,0.8073830997643181,1.0
+C,Pitch / blade / hub,23020 : Axis 3 not ready-to-operate,2,2,0.7639045067293828,0.5
+C,Pitch / blade / hub,Communication and Pitchfailure - slip ring and Beckhoff card,1,1,0.9676001678123612,1.0
+C,Pitch / blade / hub,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,1,0.483797888490937,0.0
+C,Pitch / blade / hub,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,1,0.9832989403462664,1.0
+C,Pitch / blade / hub,Pitch failure - defect fan on pitch motor,1,1,0.9600364197964596,0.0
+C,Pitch / blade / hub,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,1,0.9274669907166962,1.0
+C,Pitch / blade / hub,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,1,0.7268632397053226,0.0
+C,Pitch / blade / hub,WEC in failure - hub battery charger defect,1,1,0.9916815249084932,1.0
+C,Pitch / blade / hub,WEC in failure with pitch battery issues - rewiring,1,1,0.980952500349984,0.0
