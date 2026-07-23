@@ -1,0 +1,4 @@
+farm,representation,detector,smooth_steps,threshold_quantile,n_anomaly,n_normal,detection_rate,normal_false_alarm_rate,mean_anomaly_fraction_above,mean_normal_fraction_above,smooth_hours,configuration,detection_minus_false_alarm
+A,linear_residual,gmm,6,0.999,12.0,10.0,0.5,0.0,0.01729831747727002,0.0,1.0,linear-GMM,0.5
+B,quadratic_residual,iforest,36,0.995,6.0,9.0,0.5,0.1111111111111111,0.009636354490864717,0.0028893770125258777,6.0,quadratic-IF,0.3888888888888889
+C,raw,gmm,432,0.99,27.0,31.0,0.4444444444444444,0.0967741935483871,0.24678439055267937,0.04185146624869023,72.0,raw-GMM,0.3476702508960573

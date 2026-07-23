@@ -1,0 +1,31 @@
+{
+  "data_seeds": [
+    0,
+    1,
+    2
+  ],
+  "dfl_seeds": [
+    0,
+    1,
+    2
+  ],
+  "noise_level": 1.0,
+  "train_turbines": [
+    0,
+    1,
+    2
+  ],
+  "test_turbines": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "n_days": 500,
+  "C_prev": 50,
+  "C_fail": 300,
+  "C_waste": 1
+}

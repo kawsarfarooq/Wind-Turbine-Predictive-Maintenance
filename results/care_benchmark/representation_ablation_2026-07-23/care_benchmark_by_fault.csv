@@ -1,0 +1,211 @@
+farm,representation,detector,description,n_events,mean_percentile,detection_rate
+A,linear_residual,gmm,Gearbox bearings damaged,1,0.5107376459562801,0.0
+A,linear_residual,gmm,Gearbox failure,2,0.5156974636463352,0.5
+A,linear_residual,gmm,Generator bearing failure,2,0.6564364878666309,1.0
+A,linear_residual,gmm,Hydraulic group,6,0.5711245645394961,0.5
+A,linear_residual,gmm,Transformer failure,1,0.6165963784118321,0.0
+A,linear_residual,iforest,Gearbox bearings damaged,1,0.4690411748282855,0.0
+A,linear_residual,iforest,Gearbox failure,2,0.462294337694904,0.0
+A,linear_residual,iforest,Generator bearing failure,2,0.6562771640061258,1.0
+A,linear_residual,iforest,Hydraulic group,6,0.520878664765334,0.3333333333333333
+A,linear_residual,iforest,Transformer failure,1,0.592326931425091,0.0
+A,quadratic_residual,gmm,Gearbox bearings damaged,1,0.4963861320841647,0.0
+A,quadratic_residual,gmm,Gearbox failure,2,0.4947288002315489,0.0
+A,quadratic_residual,gmm,Generator bearing failure,2,0.6350760940150286,1.0
+A,quadratic_residual,gmm,Hydraulic group,6,0.5278171350951121,0.0
+A,quadratic_residual,gmm,Transformer failure,1,0.6379809764127149,0.0
+A,quadratic_residual,iforest,Gearbox bearings damaged,1,0.4756463233879063,0.0
+A,quadratic_residual,iforest,Gearbox failure,2,0.46223649120429494,0.0
+A,quadratic_residual,iforest,Generator bearing failure,2,0.6605838149700667,0.5
+A,quadratic_residual,iforest,Hydraulic group,6,0.4921661855884247,0.16666666666666666
+A,quadratic_residual,iforest,Transformer failure,1,0.6687448277324846,0.0
+A,raw,gmm,Gearbox bearings damaged,1,0.3625890018339586,0.0
+A,raw,gmm,Gearbox failure,2,0.32271865516340614,0.0
+A,raw,gmm,Generator bearing failure,2,0.6087986792139533,0.5
+A,raw,gmm,Hydraulic group,6,0.471291200942584,0.0
+A,raw,gmm,Transformer failure,1,0.7044592449209947,0.0
+A,raw,iforest,Gearbox bearings damaged,1,0.3619423267810152,0.0
+A,raw,iforest,Gearbox failure,2,0.34979226220777626,0.0
+A,raw,iforest,Generator bearing failure,2,0.7300320309056939,0.5
+A,raw,iforest,Hydraulic group,6,0.5194386528017434,0.0
+A,raw,iforest,Transformer failure,1,0.68789448449334,1.0
+B,linear_residual,gmm,Rotor Bearing 2 - Damage,1,0.7834062230157238,1.0
+B,linear_residual,gmm,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,0.5949598894684286,0.0
+B,linear_residual,gmm,Turbine is stopped due to a main bearing damage,1,0.7026552269715224,0.0
+B,linear_residual,gmm,high temperature in transformer cell,3,0.6251613886461543,0.0
+B,linear_residual,iforest,Rotor Bearing 2 - Damage,1,0.646980311934778,1.0
+B,linear_residual,iforest,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,0.5957063558044702,0.0
+B,linear_residual,iforest,Turbine is stopped due to a main bearing damage,1,0.6117210094207506,0.0
+B,linear_residual,iforest,high temperature in transformer cell,3,0.5784285522969235,0.0
+B,quadratic_residual,gmm,Rotor Bearing 2 - Damage,1,0.7618435194501307,1.0
+B,quadratic_residual,gmm,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,0.6521034602334659,0.0
+B,quadratic_residual,gmm,Turbine is stopped due to a main bearing damage,1,0.7407719549255174,0.0
+B,quadratic_residual,gmm,high temperature in transformer cell,3,0.6386959483537579,0.0
+B,quadratic_residual,iforest,Rotor Bearing 2 - Damage,1,0.7113047499873113,1.0
+B,quadratic_residual,iforest,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,0.6449595121146422,0.0
+B,quadratic_residual,iforest,Turbine is stopped due to a main bearing damage,1,0.620156218172579,0.0
+B,quadratic_residual,iforest,high temperature in transformer cell,3,0.5816094093904547,0.0
+B,raw,gmm,Rotor Bearing 2 - Damage,1,0.7738153550255814,1.0
+B,raw,gmm,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,0.5967792160185246,1.0
+B,raw,gmm,Turbine is stopped due to a main bearing damage,1,0.6330610226443546,0.0
+B,raw,gmm,high temperature in transformer cell,3,0.669010776663221,0.0
+B,raw,iforest,Rotor Bearing 2 - Damage,1,0.7246920350792689,0.0
+B,raw,iforest,Turbine is in standstill since 01.08 due to rotorbearing damage.,1,0.6050524594963098,0.0
+B,raw,iforest,Turbine is stopped due to a main bearing damage,1,0.4827014270448982,0.0
+B,raw,iforest,high temperature in transformer cell,3,0.6205180745359339,0.0
+C,linear_residual,gmm,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,0.8931521286079183,0.0
+C,linear_residual,gmm,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,0.8814395918617953,1.0
+C,linear_residual,gmm,"21002 : Axis 1 DC-link voltage low, batt",1,0.6857970390849237,1.0
+C,linear_residual,gmm,23020 : Axis 3 not ready-to-operate,2,0.8227820458564874,0.5
+C,linear_residual,gmm,COMMUNICATION FAULT BK1120 IN NC300 A2,1,0.9078552348780046,1.0
+C,linear_residual,gmm,Communication and Pitchfailure - slip ring and Beckhoff card,1,0.9500761566643976,1.0
+C,linear_residual,gmm,Communication fault BK1120 in NC300,1,0.8315534200179356,1.0
+C,linear_residual,gmm,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,0.7391290634775245,1.0
+C,linear_residual,gmm,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,0.6053416990185102,0.0
+C,linear_residual,gmm,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,0.6887969950514005,0.0
+C,linear_residual,gmm,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,0.4097404912302912,1.0
+C,linear_residual,gmm,P20_Blade3_Grease Collector missing,1,0.9998451190581052,0.0
+C,linear_residual,gmm,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,0.9922554134887144,1.0
+C,linear_residual,gmm,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,0.6417232266946327,0.0
+C,linear_residual,gmm,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,0.9385030663277808,1.0
+C,linear_residual,gmm,PENDING19_PREV_YAW_Grease pump defective,1,0.8665643846167528,0.0
+C,linear_residual,gmm,Pitch failure - defect fan on pitch motor,1,0.9638062458072344,0.0
+C,linear_residual,gmm,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,0.9825102686666604,1.0
+C,linear_residual,gmm,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,0.7309832679293223,0.0
+C,linear_residual,gmm,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,0.9529276906121956,0.0
+C,linear_residual,gmm,Turbine has some issues with overpressure on the main transformer,1,0.6591194647613601,0.0
+C,linear_residual,gmm,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,0.9668104704061896,1.0
+C,linear_residual,gmm,WEC in failure - current measurement own consumption,1,0.7619065915585145,1.0
+C,linear_residual,gmm,WEC in failure - hub battery charger defect,1,0.9837851345203384,1.0
+C,linear_residual,gmm,WEC in failure with pitch battery issues - rewiring,1,0.9866871604511936,0.0
+C,linear_residual,gmm,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,0.5951845481476773,0.0
+C,linear_residual,iforest,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,0.9547807805089082,1.0
+C,linear_residual,iforest,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,0.7793282297262246,1.0
+C,linear_residual,iforest,"21002 : Axis 1 DC-link voltage low, batt",1,0.6424062870673807,1.0
+C,linear_residual,iforest,23020 : Axis 3 not ready-to-operate,2,0.8465391186190114,0.5
+C,linear_residual,iforest,COMMUNICATION FAULT BK1120 IN NC300 A2,1,0.9161562381196698,1.0
+C,linear_residual,iforest,Communication and Pitchfailure - slip ring and Beckhoff card,1,0.9349035779558806,1.0
+C,linear_residual,iforest,Communication fault BK1120 in NC300,1,0.4718117969860744,1.0
+C,linear_residual,iforest,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,0.740102051397266,1.0
+C,linear_residual,iforest,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,0.6109434109571491,0.0
+C,linear_residual,iforest,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,0.6652614667973749,0.0
+C,linear_residual,iforest,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,0.3999297993903173,0.0
+C,linear_residual,iforest,P20_Blade3_Grease Collector missing,1,0.9986953976618156,0.0
+C,linear_residual,iforest,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,0.97701235214431,1.0
+C,linear_residual,iforest,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,0.4989702953267922,0.0
+C,linear_residual,iforest,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,0.9310560933725665,1.0
+C,linear_residual,iforest,PENDING19_PREV_YAW_Grease pump defective,1,0.751305814075897,0.0
+C,linear_residual,iforest,Pitch failure - defect fan on pitch motor,1,0.9655809357677416,0.0
+C,linear_residual,iforest,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,0.9590917353350942,1.0
+C,linear_residual,iforest,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,0.7099458588075372,0.0
+C,linear_residual,iforest,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,0.933883605625486,0.0
+C,linear_residual,iforest,Turbine has some issues with overpressure on the main transformer,1,0.6455646882722933,0.0
+C,linear_residual,iforest,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,0.9253237048320828,1.0
+C,linear_residual,iforest,WEC in failure - current measurement own consumption,1,0.7322749305835429,1.0
+C,linear_residual,iforest,WEC in failure - hub battery charger defect,1,0.9792843435283414,1.0
+C,linear_residual,iforest,WEC in failure with pitch battery issues - rewiring,1,0.9829338764404676,0.0
+C,linear_residual,iforest,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,0.5623698339641918,0.0
+C,quadratic_residual,gmm,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,0.8766672742461417,0.0
+C,quadratic_residual,gmm,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,0.8514522349739306,1.0
+C,quadratic_residual,gmm,"21002 : Axis 1 DC-link voltage low, batt",1,0.9170629132655992,1.0
+C,quadratic_residual,gmm,23020 : Axis 3 not ready-to-operate,2,0.812918004648285,0.5
+C,quadratic_residual,gmm,COMMUNICATION FAULT BK1120 IN NC300 A2,1,0.9260281599267384,1.0
+C,quadratic_residual,gmm,Communication and Pitchfailure - slip ring and Beckhoff card,1,0.9612740253226733,1.0
+C,quadratic_residual,gmm,Communication fault BK1120 in NC300,1,0.6009059326999882,0.0
+C,quadratic_residual,gmm,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,0.74002696640587,1.0
+C,quadratic_residual,gmm,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,0.6304425827087382,0.0
+C,quadratic_residual,gmm,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,0.7781893563674529,0.0
+C,quadratic_residual,gmm,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,0.3592515186612434,0.0
+C,quadratic_residual,gmm,P20_Blade3_Grease Collector missing,1,0.9996189789234456,0.0
+C,quadratic_residual,gmm,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,0.991720581883574,1.0
+C,quadratic_residual,gmm,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,0.7031735805576833,0.0
+C,quadratic_residual,gmm,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,0.9200252505517064,1.0
+C,quadratic_residual,gmm,PENDING19_PREV_YAW_Grease pump defective,1,0.8574334178748885,0.0
+C,quadratic_residual,gmm,Pitch failure - defect fan on pitch motor,1,0.9616326690048712,0.0
+C,quadratic_residual,gmm,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,0.9755524821176514,1.0
+C,quadratic_residual,gmm,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,0.7231178392825643,0.0
+C,quadratic_residual,gmm,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,0.9440106655160772,0.0
+C,quadratic_residual,gmm,Turbine has some issues with overpressure on the main transformer,1,0.6024486013523266,0.0
+C,quadratic_residual,gmm,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,0.9567204634577956,0.0
+C,quadratic_residual,gmm,WEC in failure - current measurement own consumption,1,0.8023496650131965,1.0
+C,quadratic_residual,gmm,WEC in failure - hub battery charger defect,1,0.9901371828277188,1.0
+C,quadratic_residual,gmm,WEC in failure with pitch battery issues - rewiring,1,0.9815118577694504,0.0
+C,quadratic_residual,gmm,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,0.6758407056080487,0.0
+C,quadratic_residual,iforest,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,0.9563058503715232,0.0
+C,quadratic_residual,iforest,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,0.741574020472068,1.0
+C,quadratic_residual,iforest,"21002 : Axis 1 DC-link voltage low, batt",1,0.6828366969438335,1.0
+C,quadratic_residual,iforest,23020 : Axis 3 not ready-to-operate,2,0.848608726819221,0.5
+C,quadratic_residual,iforest,COMMUNICATION FAULT BK1120 IN NC300 A2,1,0.9428213854247838,1.0
+C,quadratic_residual,iforest,Communication and Pitchfailure - slip ring and Beckhoff card,1,0.936308190422562,1.0
+C,quadratic_residual,iforest,Communication fault BK1120 in NC300,1,0.4591879660784327,1.0
+C,quadratic_residual,iforest,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,0.7617743635829458,0.0
+C,quadratic_residual,iforest,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,0.7069668300925416,0.0
+C,quadratic_residual,iforest,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,0.7731416915938131,0.0
+C,quadratic_residual,iforest,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,0.3565671649425387,0.0
+C,quadratic_residual,iforest,P20_Blade3_Grease Collector missing,1,0.9996171006042108,0.0
+C,quadratic_residual,iforest,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,0.9643366938149532,1.0
+C,quadratic_residual,iforest,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,0.4952779634162961,0.0
+C,quadratic_residual,iforest,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,0.9327485956611266,1.0
+C,quadratic_residual,iforest,PENDING19_PREV_YAW_Grease pump defective,1,0.7623076097256598,0.0
+C,quadratic_residual,iforest,Pitch failure - defect fan on pitch motor,1,0.9703237792822514,0.0
+C,quadratic_residual,iforest,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,0.9632678510697982,1.0
+C,quadratic_residual,iforest,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,0.6588668587417897,0.0
+C,quadratic_residual,iforest,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,0.9609162480151672,0.0
+C,quadratic_residual,iforest,Turbine has some issues with overpressure on the main transformer,1,0.5550689326359001,0.0
+C,quadratic_residual,iforest,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,0.919649285158956,1.0
+C,quadratic_residual,iforest,WEC in failure - current measurement own consumption,1,0.7952438843318295,1.0
+C,quadratic_residual,iforest,WEC in failure - hub battery charger defect,1,0.9761244183882376,0.0
+C,quadratic_residual,iforest,WEC in failure with pitch battery issues - rewiring,1,0.9842384105834469,0.0
+C,quadratic_residual,iforest,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,0.6664202008271778,0.0
+C,raw,gmm,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,0.9528635789974864,1.0
+C,raw,gmm,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,0.8674203352366918,1.0
+C,raw,gmm,"21002 : Axis 1 DC-link voltage low, batt",1,0.8073830997643181,1.0
+C,raw,gmm,23020 : Axis 3 not ready-to-operate,2,0.7639045067293828,0.5
+C,raw,gmm,COMMUNICATION FAULT BK1120 IN NC300 A2,1,0.8550297021379868,0.0
+C,raw,gmm,Communication and Pitchfailure - slip ring and Beckhoff card,1,0.9676001678123612,1.0
+C,raw,gmm,Communication fault BK1120 in NC300,1,0.7473701835740455,1.0
+C,raw,gmm,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,0.7171569051034338,0.0
+C,raw,gmm,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,0.5654213980683644,0.0
+C,raw,gmm,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,0.7614562669437053,0.0
+C,raw,gmm,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,0.483797888490937,0.0
+C,raw,gmm,P20_Blade3_Grease Collector missing,1,0.99838688190032,1.0
+C,raw,gmm,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,0.9832989403462664,1.0
+C,raw,gmm,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,0.818008207611317,0.0
+C,raw,gmm,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,0.9227527006709066,1.0
+C,raw,gmm,PENDING19_PREV_YAW_Grease pump defective,1,0.7072442877928735,0.0
+C,raw,gmm,Pitch failure - defect fan on pitch motor,1,0.9600364197964596,0.0
+C,raw,gmm,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,0.9274669907166962,1.0
+C,raw,gmm,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,0.7268632397053226,0.0
+C,raw,gmm,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,0.8938474964040941,0.0
+C,raw,gmm,Turbine has some issues with overpressure on the main transformer,1,0.697053972092944,0.0
+C,raw,gmm,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,0.9765547258995824,1.0
+C,raw,gmm,WEC in failure - current measurement own consumption,1,0.8316983472368261,1.0
+C,raw,gmm,WEC in failure - hub battery charger defect,1,0.9916815249084932,1.0
+C,raw,gmm,WEC in failure with pitch battery issues - rewiring,1,0.980952500349984,0.0
+C,raw,gmm,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,0.7475172640107057,0.0
+C,raw,iforest,"10115 : Oil level error, two-pump mode + Oil Leakage Gear Oil Supply + 12019: Rotor brake B cannot be closed + P20_yaw carbon brush damaged",1,0.9583590347908508,0.0
+C,raw,iforest,15004 : Safety chain relay open + 93005 : Gear oil cooler bypass valve,1,0.8044682719284065,1.0
+C,raw,iforest,"21002 : Axis 1 DC-link voltage low, batt",1,0.6768310056426557,1.0
+C,raw,iforest,23020 : Axis 3 not ready-to-operate,2,0.8489687071185739,0.0
+C,raw,iforest,COMMUNICATION FAULT BK1120 IN NC300 A2,1,0.7355044160219265,0.0
+C,raw,iforest,Communication and Pitchfailure - slip ring and Beckhoff card,1,0.9625622026753428,1.0
+C,raw,iforest,Communication fault BK1120 in NC300,1,0.4532628684106068,1.0
+C,raw,iforest,"Converter Failure from 17.11 12:30 - 18.11. 13:57, Fuse Filter Supply ",1,0.6746721628180852,1.0
+C,raw,iforest,Failure 2023-04-05 03:30 - defective coupling between gear oil pump and motor,1,0.5293964383233508,0.0
+C,raw,iforest,"Failure due to Rotorbrake and Hydraulic problemes - Hydraulic pump A disabeld, 2h later turbine back in production - Analysis indicates a longer anomaly in temp_hydraulic_oil_tank_1_average until 15.01.2024 which is neither confirmed nor refuted.",1,0.6903266317122747,0.0
+C,raw,iforest,Harting plug Nacelle/HUB damaged + NCR20_HUB: Wiring blade control system,1,0.4390281587733405,0.0
+C,raw,iforest,P20_Blade3_Grease Collector missing,1,0.9957006040119204,0.0
+C,raw,iforest,P20_DGUV-v3 RCD 28F1 NC310 defective + 0 : P20_Blades_Cabinet Caps missing,1,0.8891974076443309,1.0
+C,raw,iforest,P20_Grounding role brake disc + P20_cover-lightning-main-cabinet-hub,1,0.7250932302146792,0.0
+C,raw,iforest,P20_spinner_carbonbrush defekt + P20_Accumulators_hydraulic system,1,0.9116968548290058,1.0
+C,raw,iforest,PENDING19_PREV_YAW_Grease pump defective,1,0.7127588907210146,0.0
+C,raw,iforest,Pitch failure - defect fan on pitch motor,1,0.9674507019934132,0.0
+C,raw,iforest,"Pitchfailure - defect Beckhoffcard, Axis 2, rectified on 23/01 - Anomalie liegt aber länger an als der Fehler, Batterien waren ok",1,0.9065031427360036,1.0
+C,raw,iforest,Randomn small failures regarding pitch resulting in a longer standstill due to a defect pitch encoder (26/02),1,0.5297767379673637,0.0
+C,raw,iforest,"Turbine had several short standstills (max 8min) with failure ""Schwingungen Umrichter Drehmomenten Level 1""",1,0.6454683842722733,0.0
+C,raw,iforest,Turbine has some issues with overpressure on the main transformer,1,0.670876713642346,0.0
+C,raw,iforest,Valve in water cooling system was left in wrong position after maintenance actions on 05-08-2020,1,0.9734379212566728,1.0
+C,raw,iforest,WEC in failure - current measurement own consumption,1,0.8497893517326086,1.0
+C,raw,iforest,WEC in failure - hub battery charger defect,1,0.98349860413177,1.0
+C,raw,iforest,WEC in failure with pitch battery issues - rewiring,1,0.9179221460329836,0.0
+C,raw,iforest,We had some failures (störung 24VAC Versorgung Rotorbremse) on the 16th in the afternoon. From 17th onwards a longer standstill where we don't know the root cause to. ,1,0.5308747657820525,0.0

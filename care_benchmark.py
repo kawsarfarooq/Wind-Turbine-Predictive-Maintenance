@@ -6,9 +6,10 @@ normal prediction window. Scores are converted to empirical percentiles of the
 training distribution so event-level results are comparable across datasets.
 
 Main comparisons:
-  * raw Avg sensor features vs linear normal-behaviour residuals;
+  * raw Avg sensor features vs linear/quadratic normal-behaviour residuals;
   * PCA-GMM vs PCA-Isolation-Forest anomaly detectors;
   * status 0 only vs CARE's documented normal states {0, 2};
+  * causal smoothing windows and training-calibrated alarm quantiles;
   * anomaly events vs normal-event controls in every wind farm.
 
 Example:
@@ -28,10 +29,11 @@ import pandas as pd
 import sklearn
 from sklearn.decomposition import PCA
 from sklearn.ensemble import IsolationForest
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.metrics import average_precision_score, roc_auc_score
 from sklearn.mixture import GaussianMixture
-from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 
 from real_data_care import (avg_sensor_columns, find_dataset_file, sniff_sep,
                             split_covariates_targets)
@@ -182,15 +184,66 @@ def build_representation(df, meta, train_mask, representation):
     tgt, keep_tgt = prepare_frame(df, targets, train_mask)
     if not keep_cov or not keep_tgt:
         raise ValueError("residual representation: degenerate covariates/targets")
-    reg = LinearRegression().fit(
-        cov.values[train_mask], tgt.values[train_mask])
-    residual = tgt.values - reg.predict(cov.values)
-    return residual, "linear_residual", len(keep_cov), len(keep_tgt)
+    if representation == "residual":
+        reg = LinearRegression()
+        mode = "linear_residual"
+    elif representation == "quadratic_residual":
+        reg = make_pipeline(
+            PolynomialFeatures(degree=2, include_bias=False),
+            StandardScaler(),
+            Ridge(alpha=10.0),
+        )
+        mode = "quadratic_residual"
+    else:
+        raise ValueError(f"unknown representation: {representation}")
+    train_idx = np.flatnonzero(train_mask)
+    if representation == "quadratic_residual" and len(train_idx) > MAX_TRAIN_ROWS:
+        rng = np.random.default_rng(RANDOM_SEED)
+        train_idx = rng.choice(train_idx, MAX_TRAIN_ROWS, replace=False)
+    reg.fit(cov.values[train_idx], tgt.values[train_idx])
+    prediction = np.asarray(reg.predict(cov.values))
+    if prediction.ndim == 1:
+        prediction = prediction.reshape(-1, 1)
+    residual = tgt.values - prediction
+    return residual, mode, len(keep_cov), len(keep_tgt)
 
 
 def empirical_percentile(train_scores, scores):
     ordered = np.sort(np.asarray(train_scores, dtype=float))
     return np.searchsorted(ordered, scores, side="right") / len(ordered)
+
+
+def causal_rolling_median(values, steps):
+    """Trailing median: every output uses only the current and past values."""
+    return pd.Series(values).rolling(
+        int(steps), min_periods=1).median().to_numpy()
+
+
+def temporal_score_grid(percentile, train_mask, eval_mask, smooth_steps_values,
+                        threshold_quantiles):
+    """Evaluate temporal aggregation and alarm calibration without refitting."""
+    rows = []
+    for smooth_steps in smooth_steps_values:
+        smooth = causal_rolling_median(percentile, smooth_steps)
+        train_score, eval_score = smooth[train_mask], smooth[eval_mask]
+        auc_y = np.r_[np.zeros(len(train_score)), np.ones(len(eval_score))]
+        auc_s = np.r_[train_score, eval_score]
+        for threshold_quantile in threshold_quantiles:
+            threshold = float(np.quantile(
+                train_score, threshold_quantile))
+            alarms = eval_score > threshold
+            rows.append({
+                "smooth_steps": int(smooth_steps),
+                "threshold_quantile": float(threshold_quantile),
+                "threshold_percentile": threshold,
+                "auc_vs_train": float(roc_auc_score(auc_y, auc_s)),
+                "event_mean_percentile": float(eval_score.mean()),
+                "event_p95_percentile": float(
+                    np.quantile(eval_score, 0.95)),
+                "frac_above_threshold": float(alarms.mean()),
+                "alarm": bool(alarms.any()),
+            })
+    return rows
 
 
 def event_mask(df, meta, row):
@@ -214,26 +267,21 @@ def normal_train_mask(df, meta, normal_statuses):
         & status.isin(normal_statuses))
 
 
-def score_loaded_event(df, meta, row, farm, X, mode, n_cov, n_targets,
-                       train_mask, detector_name, normal_statuses):
+def score_loaded_event_grid(
+        df, meta, row, farm, X, mode, n_cov, n_targets, train_mask,
+        detector_name, normal_statuses,
+        smooth_steps_values=(SMOOTH_STEPS,),
+        threshold_quantiles=(THRESHOLD_QUANTILE,)):
     if train_mask.sum() < 1000:
         raise ValueError(f"only {int(train_mask.sum())} normal training rows")
     detector = DETECTORS[detector_name]().fit(X[train_mask])
     raw_score = detector.score(X)
     percentile = empirical_percentile(raw_score[train_mask], raw_score)
-    smooth = pd.Series(percentile).rolling(
-        SMOOTH_STEPS, min_periods=1).median().to_numpy()
-    threshold = float(np.quantile(smooth[train_mask], THRESHOLD_QUANTILE))
     mask = event_mask(df, meta, row)
     if not mask.any():
         raise ValueError("empty evaluation window")
-
-    train_score, eval_score = smooth[train_mask], smooth[mask]
-    auc_y = np.r_[np.zeros(len(train_score)), np.ones(len(eval_score))]
-    auc_s = np.r_[train_score, eval_score]
-    alarms = eval_score > threshold
     asset = row.get("asset", row.get("asset_id", "unknown"))
-    return {
+    base = {
         "farm": farm,
         "asset": asset,
         "cluster_id": f"{farm}:{asset}",
@@ -247,13 +295,21 @@ def score_loaded_event(df, meta, row, farm, X, mode, n_cov, n_targets,
         "n_eval": int(mask.sum()),
         "n_covariates": n_cov,
         "n_targets": n_targets,
-        "threshold_percentile": threshold,
-        "auc_vs_train": float(roc_auc_score(auc_y, auc_s)),
-        "event_mean_percentile": float(eval_score.mean()),
-        "event_p95_percentile": float(np.quantile(eval_score, 0.95)),
-        "frac_above_threshold": float(alarms.mean()),
-        "alarm": bool(alarms.any()),
     }
+    return [
+        {**base, **metrics}
+        for metrics in temporal_score_grid(
+            percentile, train_mask, mask, smooth_steps_values,
+            threshold_quantiles)
+    ]
+
+
+def score_loaded_event(df, meta, row, farm, X, mode, n_cov, n_targets,
+                       train_mask, detector_name, normal_statuses):
+    """Score one event with the historical 24-hour/99.5% configuration."""
+    return score_loaded_event_grid(
+        df, meta, row, farm, X, mode, n_cov, n_targets, train_mask,
+        detector_name, normal_statuses)[0]
 
 
 def analyse_event(path, row, farm, representation, detector_name,
@@ -330,6 +386,8 @@ def summarize_events(events):
         events["cluster_id"] = (
             events["farm"].astype(str) + ":" + events["asset"].astype(str))
     keys = ["farm", "representation", "detector", "normal_statuses"]
+    keys.extend(column for column in ["smooth_steps", "threshold_quantile"]
+                if column in events)
     per_farm = events.groupby(keys, dropna=False).apply(
         _classification_summary, include_groups=False).reset_index()
     all_farms = events.assign(farm="ALL").groupby(keys, dropna=False).apply(
@@ -350,10 +408,11 @@ def metadata(args):
         "normal_status_sets": [
             "+".join(map(str, sorted(values)))
             for values in args.normal_status_sets],
-        "smooth_steps": SMOOTH_STEPS,
-        "threshold_quantile": THRESHOLD_QUANTILE,
+        "smooth_steps": args.smooth_steps,
+        "threshold_quantiles": args.threshold_quantiles,
         "max_train_rows": MAX_TRAIN_ROWS,
         "quick": args.quick,
+        "summary_skipped": args.skip_summary,
     }
 
 
@@ -363,20 +422,32 @@ def main():
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--farms", nargs="+", default=["A", "B", "C"])
     parser.add_argument("--representations", nargs="+",
-                        choices=["raw", "residual"],
-                        default=["raw", "residual"])
+                        choices=["raw", "residual", "quadratic_residual"],
+                        default=["raw", "residual", "quadratic_residual"])
     parser.add_argument("--detectors", nargs="+", choices=DETECTORS,
                         default=["gmm", "iforest"])
     parser.add_argument("--normal-status-sets", nargs="+",
                         default=["0", "0+2"],
                         help="sets such as 0 or 0+2")
+    parser.add_argument("--smooth-steps", nargs="+", type=int,
+                        default=[SMOOTH_STEPS],
+                        help="causal trailing-median windows in 10-minute steps")
+    parser.add_argument("--threshold-quantiles", nargs="+", type=float,
+                        default=[THRESHOLD_QUANTILE],
+                        help="alarm quantiles calibrated on normal training scores")
     parser.add_argument("--quick", type=int, default=0,
                         help="process at most N events per farm (smoke test)")
+    parser.add_argument("--skip-summary", action="store_true",
+                        help="write event rows without the bootstrap summary")
     args = parser.parse_args()
 
     args.farms = [f.upper() for f in args.farms]
     args.normal_status_sets = [
         {int(v) for v in item.split("+")} for item in args.normal_status_sets]
+    if any(value < 1 for value in args.smooth_steps):
+        parser.error("--smooth-steps values must be positive")
+    if any(not 0 < value < 1 for value in args.threshold_quantiles):
+        parser.error("--threshold-quantiles values must be between 0 and 1")
     farms = discover_farms(args.root)
     rows = []
     for farm in args.farms:
@@ -439,17 +510,22 @@ def main():
                                   f"{representation}/{detector}/"
                                   f"{[sorted(s) for s in status_sets]}")
                         try:
-                            result = score_loaded_event(
+                            results = score_loaded_event_grid(
                                 df, meta, event, farm, X, mode, n_cov,
                                 n_targets, train_mask, detector,
-                                primary_statuses)
-                            for statuses in status_sets:
-                                cloned = result.copy()
-                                cloned["normal_statuses"] = "+".join(
-                                    map(str, sorted(statuses)))
-                                rows.append(cloned)
-                            print(f"{prefix}: mean={result['event_mean_percentile']:.3f} "
-                                  f"alarm={int(result['alarm'])}")
+                                primary_statuses, args.smooth_steps,
+                                args.threshold_quantiles)
+                            for result in results:
+                                for statuses in status_sets:
+                                    cloned = result.copy()
+                                    cloned["normal_statuses"] = "+".join(
+                                        map(str, sorted(statuses)))
+                                    rows.append(cloned)
+                            default = results[0]
+                            print(
+                                f"{prefix}: grid={len(results)} "
+                                f"first_mean={default['event_mean_percentile']:.3f} "
+                                f"first_alarm={int(default['alarm'])}")
                         except Exception as exc:
                             for statuses in status_sets:
                                 rows.append({
@@ -469,8 +545,10 @@ def main():
     detailed.to_csv(args.output / "care_benchmark_events.csv", index=False)
     ok = detailed[detailed.get("error").isna()] \
         if "error" in detailed else detailed
-    summary = summarize_events(ok) if len(ok) else pd.DataFrame()
-    summary.to_csv(args.output / "care_benchmark_summary.csv", index=False)
+    summary = (summarize_events(ok)
+               if len(ok) and not args.skip_summary else pd.DataFrame())
+    if not args.skip_summary:
+        summary.to_csv(args.output / "care_benchmark_summary.csv", index=False)
     (args.output / "care_benchmark_metadata.json").write_text(
         json.dumps(metadata(args), indent=2), encoding="utf-8")
     print("\n", summary.to_string(index=False))

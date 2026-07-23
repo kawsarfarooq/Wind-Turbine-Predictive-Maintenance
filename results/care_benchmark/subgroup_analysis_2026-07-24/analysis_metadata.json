@@ -1,0 +1,56 @@
+{
+  "source_events": "results\\care_benchmark\\temporal_threshold_ablation_2026-07-23\\temporal_ablation_events.csv",
+  "reference_smooth_steps": 144,
+  "reference_threshold_quantile": 0.995,
+  "normal_statuses": "0",
+  "event_rows": 95,
+  "assets": 36,
+  "fault_taxonomy": {
+    "Drivetrain / bearings": [
+      "gearbox",
+      "bearing",
+      "coupling"
+    ],
+    "Hydraulic / brake / lubrication": [
+      "hydraulic",
+      "rotorbrake",
+      "rotor brake",
+      "brake disc",
+      "gear oil",
+      "oil level",
+      "oil leakage",
+      "oil cooler",
+      "grease"
+    ],
+    "Pitch / blade / hub": [
+      "pitch",
+      "blade",
+      "hub",
+      "spinner",
+      "axis"
+    ],
+    "Electrical / converter / transformer": [
+      "transformer",
+      "converter",
+      "umrichter",
+      "current measurement",
+      "24vac",
+      "rcd",
+      "dc-link",
+      "fuse"
+    ],
+    "Communication / control": [
+      "communication",
+      "beckhoff",
+      "bk1120",
+      "nc300"
+    ],
+    "Yaw": [
+      "yaw"
+    ],
+    "Cooling": [
+      "cooling"
+    ]
+  },
+  "confidence_intervals": "1000-resample asset-clustered bootstrap"
+}
